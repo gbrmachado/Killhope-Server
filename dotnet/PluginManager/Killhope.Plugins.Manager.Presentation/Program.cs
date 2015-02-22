@@ -41,9 +41,13 @@ namespace Killhope.Plugins.Manager.Presentation
             //TODO: Versions and upgrade
             if (Settings.Default.IsFirstRun)
                 PerformFirstRun();
+            else
+                Initialise();
 
+            if (Program.releaseManager == null)
+                throw new InvalidOperationException("releaseManager is invalid.");
 
-            LocalTempSideFactory f = new LocalTempSideFactory(systemService, null);
+            LocalTempSideFactory f = new LocalTempSideFactory(Program.releaseManager);
 
             Settings.Default.IsFirstRun = false;
             Settings.Default.Save();
@@ -51,6 +55,11 @@ namespace Killhope.Plugins.Manager.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1(factory, f));
+        }
+
+        private static void Initialise()
+        {
+            throw new NotImplementedException();
         }
 
         private static LocalReleaseManager GetReleaseManager()
@@ -64,6 +73,7 @@ namespace Killhope.Plugins.Manager.Presentation
             
             var localsystem = GetReleaseManager();
             localsystem.CreateRelease(GetInitialRelease());
+            Program.releaseManager = localsystem;
         }
 
         private static ReleaseDTO GetInitialRelease()
