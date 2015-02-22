@@ -1,0 +1,35 @@
+﻿PM - Plugin Manager 10
+PM.1 -Contains a pre-defined folder allowing for plugins to be loaded.
+
+
+
+
+PM.1.1
+Allow the user to change the pre-defined folder to search for plugins.
+
+PM.2
+A loaded plugin may specify one or more menu items to be added or appended to the menu bar. These may be specified in folders.
+
+PM.4
+Provide mechanism to connect to local server and upload changed files in a release. (cross dependency with FS.6)
+A local server can be connected to and a new zipped file containing the changes will be loaded.
+
+PM.4.1
+Allows selection of specified files to be uploaded
+
+
+PM.5
+Allows plugins to access functionality to queue the following file operations on the current release: upload, delete and modify.
+
+PM.6.1
+Creates a new version number on release
+
+PM.6.1.1
+Release version numbers should be distinct.
+
+PM.6.2
+Releases can be tagged with metadata (incl. Version number)
+
+PM.10
+A Plugin must specify a GUID and a version number.
+

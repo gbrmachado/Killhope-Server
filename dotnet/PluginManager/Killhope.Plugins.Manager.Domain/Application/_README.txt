@@ -1,0 +1,1 @@
+﻿Application-specific, should be in an application layer rather than the domain, but not worth creating another assembly for a few controllers.
