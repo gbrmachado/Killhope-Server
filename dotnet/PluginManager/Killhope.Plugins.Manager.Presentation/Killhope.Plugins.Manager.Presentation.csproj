@@ -76,6 +76,7 @@
       <DependentUpon>SiteSelection.cs</DependentUpon>
     </Compile>
     <Compile Include="TestPlugin.cs" />
+    <Compile Include="_InternalsVisibleTo.cs" />
     <EmbeddedResource Include="DiffDisplay.resx">
       <DependentUpon>DiffDisplay.cs</DependentUpon>
     </EmbeddedResource>
