@@ -14,7 +14,7 @@ namespace Killhope.Plugins.Manager.Presentation
 {
     public partial class SiteSelection : Form
     {
-        private readonly List<SiteManifest> manifests;
+        private readonly BindingList<SiteManifest> manifests;
         private readonly SiteManifestManager manager;
         /// <summary>
         /// Whether we are adding a new Manifest.
@@ -33,7 +33,7 @@ namespace Killhope.Plugins.Manager.Presentation
 
         public SiteSelection(SiteManifestManager manifests) : this()
         {
-            this.manifests = manifests.GetManifests().ToList();
+            this.manifests = new BindingList<SiteManifest>(manifests.GetManifests().ToList());
             this.manager = manifests;
         }
 
