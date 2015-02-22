@@ -14,14 +14,14 @@ namespace Killhope.Plugins.Manager.Domain.Release
     /// </summary>
     public class ReleaseFTPUploader
     {
-        private readonly FTPclient uploader;
+        private readonly IFTPClient uploader;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="ftpClient">The uploader to use for the transfer. Set to uload to a specific location.</param>
         /// <remarks></remarks>
-        public ReleaseFTPUploader(FTPclient ftpClient)
+        public ReleaseFTPUploader(IFTPClient ftpClient)
         {
             if (ftpClient == null)
                 throw new ArgumentNullException(nameof(ftpClient));
@@ -52,7 +52,7 @@ namespace Killhope.Plugins.Manager.Domain.Release
         private void Upload(ReleaseDTO release)
         {
             //TODO: Error Handling.
-
+            throw new NotImplementedException("Untested, and the manifest is not yet uploaded");
             //Initially, create the folder.
 
             string folderName = release.Manifest.Version.ToString();

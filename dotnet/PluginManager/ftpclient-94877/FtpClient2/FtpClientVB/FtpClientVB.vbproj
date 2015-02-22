@@ -76,6 +76,7 @@
     <Compile Include="FtpFile.vb" />
     <Compile Include="FtpDirectory.vb" />
     <Compile Include="FtpClient.vb" />
+    <Compile Include="IFTPClient.vb" />
     <Compile Include="InvalidFTPObject.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">

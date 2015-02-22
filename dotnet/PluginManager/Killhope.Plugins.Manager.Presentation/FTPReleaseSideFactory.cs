@@ -61,7 +61,7 @@ namespace Killhope.Plugins.Manager.Presentation
             return new FTPReleaseSide(client, cache, releaseNumber);
         }
 
-        private Tuple<bool, int> getReleaseNumber(FTPclient client)
+        private Tuple<bool, int> getReleaseNumber(IFTPClient client)
         {
             var picker = new ReleasePicker(FTPUtilities.GetAvailableReleases(client));
 

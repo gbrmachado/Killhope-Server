@@ -13,7 +13,7 @@ namespace Killhope.Plugins.Manager.Domain.Release
     /// </summary>
     public class FTPReleaseSide : ReleaseSide
     {
-        private readonly FTPclient client;
+        private readonly IFTPClient client;
         private string rootFolder = "/";
         private readonly LocalFTPSiteCache localFTPCache;
         private readonly int releaseNumber;
@@ -67,7 +67,7 @@ namespace Killhope.Plugins.Manager.Domain.Release
             this.localFTPCache = cache;
         }
 
-        public FTPReleaseSide(FTPclient client, LocalFTPSiteCache localFTPSiteCache, int releaseNumber)
+        public FTPReleaseSide(IFTPClient client, LocalFTPSiteCache localFTPSiteCache, int releaseNumber)
         {
             this.client = client;
             this.client.EnableSSL = String.IsNullOrEmpty(client.Password);
