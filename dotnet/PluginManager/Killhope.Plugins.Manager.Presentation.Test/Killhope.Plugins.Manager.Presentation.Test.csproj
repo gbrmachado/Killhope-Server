@@ -51,10 +51,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Mocks\MockFTPReleaseSide.cs" />
+    <Compile Include="Mocks\MockTempSideFactory.cs" />
     <Compile Include="TestMainForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Killhope.Plugins.Manager.Domain\Killhope.Plugins.Manager.Domain.csproj">
+      <Project>{1CCAB846-C62E-4F41-9A93-E0036AD96F77}</Project>
+      <Name>Killhope.Plugins.Manager.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Killhope.Plugins.Manager.Presentation\Killhope.Plugins.Manager.Presentation.csproj">
       <Project>{9ce65e0e-6e14-4a42-90aa-c0b553809977}</Project>
       <Name>Killhope.Plugins.Manager.Presentation</Name>

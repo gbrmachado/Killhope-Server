@@ -35,6 +35,7 @@ namespace Killhope.Plugins.Manager.Presentation
             if (rightSide == null)
                 throw new ArgumentNullException(nameof(rightSide));
 
+            InitializeComponent();
             this.menuStripManager= new MenuStripManager(this.menuStrip1);
             this.leftSide = leftSide;
             this.rightSide = rightSide;
