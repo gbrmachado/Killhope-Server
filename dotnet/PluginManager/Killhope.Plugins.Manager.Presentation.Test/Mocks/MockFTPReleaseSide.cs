@@ -5,7 +5,7 @@ namespace Killhope.Plugins.Manager.Presentation.Test.Mocks
 {
     class MockFTPReleaseSide : FTPReleaseSideFactory
     {
-        public MockFTPReleaseSide() : base(null, null, null)
+        public MockFTPReleaseSide() : base(null, null)
         {
         }
 

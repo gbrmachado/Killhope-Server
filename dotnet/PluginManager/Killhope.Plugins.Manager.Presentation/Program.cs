@@ -18,7 +18,7 @@ namespace Killhope.Plugins.Manager.Presentation
 
         private static IFileSystemService GetLocalFileSystemService()
         {
-            var ret = new LocalFileSystemManager("TODO");
+            var ret = new LocalFileSystemManager(Settings.Default.LocalFTPLocation);
             ret.Validate().ThowIfInvalid();
             return ret;
         }
@@ -35,8 +35,7 @@ namespace Killhope.Plugins.Manager.Presentation
             var man = new SiteManifestManager(systemService);
             var siteman = new LocalSiteManager(systemService, new ItemLocation("", ""));
             
-            FTPReleaseSideFactory factory = new FTPReleaseSideFactory(man, siteman, null);
-
+            FTPReleaseSideFactory factory = new FTPReleaseSideFactory(man, siteman);
 
             //TODO: Versions and upgrade
             if (Settings.Default.IsFirstRun)

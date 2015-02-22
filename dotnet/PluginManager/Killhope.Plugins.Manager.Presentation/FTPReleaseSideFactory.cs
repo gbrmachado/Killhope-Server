@@ -14,14 +14,12 @@ namespace Killhope.Plugins.Manager.Presentation
     {
         private readonly SiteManifestManager manifestManager;
         private readonly LocalSiteManager localSiteManager;
-        private readonly ILocalFTPService service;
 
         [ImportingConstructor]
-        public FTPReleaseSideFactory(SiteManifestManager manager, LocalSiteManager localSiteManager, ILocalFTPService service)
+        public FTPReleaseSideFactory(SiteManifestManager manager, LocalSiteManager localSiteManager)
         {
             this.manifestManager = manager;
             this.localSiteManager = localSiteManager;
-            this.service = service;
         }
 
         public override ReleaseSide GetInstance()
@@ -51,7 +49,7 @@ namespace Killhope.Plugins.Manager.Presentation
             string ftpFolderLocation = Settings.Default.LocalFTPLocation;
 
             
-            string releaseFolderPath = service.getFolderPathForSite(ftpFolderLocation, manifest.FTPServer);
+            string releaseFolderPath = LocalFTPServiceUtilities.GetFolderPathForSite(ftpFolderLocation, manifest.FTPServer);
 
             throw new NotImplementedException();
             //TODO: localSiteManager should be instantiated with the value of the site here.
