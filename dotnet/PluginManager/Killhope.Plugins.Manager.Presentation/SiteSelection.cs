@@ -66,11 +66,29 @@ namespace Killhope.Plugins.Manager.Presentation
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
-            this.manifests.Add(new SiteManifest());
+            this.manifests.Add(this.CreateManifestFromFields());
             this.isNew = true;
             RefreshVariables();
             this.selectManifest(this.manifests.Count - 1);
         }
+
+        private SiteManifest CreateManifestFromFields()
+        {
+            SiteManifest m = new SiteManifest();
+            m.DisplayName = this.txt_DisplayName.Text;
+            m.DefaultUserName = this.UserName;
+            m.FTPPath = this.RootFolder;
+            m.FTPServer = FTPDomain;
+            m.UseSFTP = this.IsSFTP;
+            return m;
+        }
+
+        public string DisplayName { get { return txt_DisplayName.Text; } set { txt_DisplayName.Text = value; } }
+        public string UserName { get { return txt_Username.Text; } set { txt_Username.Text = value; } }
+        public string RootFolder { get { return txt_RootFolder.Text; } set { txt_RootFolder.Text = value; } }
+        public string FTPDomain { get { return txt_Domain.Text; } set { txt_Domain.Text = value; } }
+        public string Password { get { return txt_Password.Text; } set { txt_Password.Text = value; } }
+        public bool IsSFTP { get { return cbx_secure.Checked; } set { cbx_secure.Checked = value; } }
 
         private void btn_OK_Click(object sender, EventArgs e)
         {
