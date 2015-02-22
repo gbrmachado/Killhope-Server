@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="MenuItemManagerTest.cs" />
     <Compile Include="MockFile.cs" />
+    <Compile Include="Mock\MockFTPClient.cs" />
     <Compile Include="Mock\MockLocaReleaseManager.cs" />
     <Compile Include="Mock\MockReleaseSide.cs" />
     <Compile Include="SiteManifestTest.cs" />
@@ -64,8 +65,13 @@
     <Compile Include="TestTempReleaseSide.cs" />
     <Compile Include="TestPathFunctions.cs" />
     <Compile Include="TestReleaseFTPUploader.cs" />
+    <Compile Include="TestFTPValidationDecortator.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ftpclient-94877\FtpClient2\FtpClientVB\FtpClientVB.vbproj">
+      <Project>{c4b489b4-6146-4750-9b4f-6b001f84ef99}</Project>
+      <Name>FtpClientVB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Killhope.Plugins.Manager.Domain\Killhope.Plugins.Manager.Domain.csproj">
       <Project>{1ccab846-c62e-4f41-9a93-e0036ad96f77}</Project>
       <Name>Killhope.Plugins.Manager.Domain</Name>

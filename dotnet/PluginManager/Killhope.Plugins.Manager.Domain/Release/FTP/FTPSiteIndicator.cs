@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
-
+using System;
+using Killhope.Plugins.Rocks.Domain.Application;
 
 namespace Killhope.Plugins.Manager.Domain.Release.FTP
 {
@@ -25,5 +26,8 @@ namespace Killhope.Plugins.Manager.Domain.Release.FTP
         public static string ToJSONString(FTPSiteIndicator siteData) => siteData?.ToJSONString();
 
         public string ToJSONString() => JsonConvert.SerializeObject(this);
+
+        //TODO: Does any more validation need to be done?
+        public virtual ValidationResult Validate() => new ValidationResult();
     }
 }
