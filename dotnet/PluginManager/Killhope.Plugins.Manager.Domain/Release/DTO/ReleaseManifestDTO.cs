@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Killhope.Plugins.Manager.Domain.Application;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -50,7 +51,7 @@ namespace Killhope.Plugins.Manager.Domain.Release
 
         public static ReleaseManifestDTO FromStream(MemoryStream memoryStream)
         {
-            string JSON = new StreamReader(memoryStream).ReadToEnd();
+            string JSON = memoryStream.ConvertToString();
             return FromString(JSON);
         }
 
