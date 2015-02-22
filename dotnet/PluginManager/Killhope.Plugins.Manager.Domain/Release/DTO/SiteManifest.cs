@@ -47,5 +47,12 @@ namespace Killhope.Plugins.Manager.Domain.Release.DTO
             string JSON = JsonConvert.SerializeObject(this);
             return Encoding.Unicode.GetBytes(JSON);
         }
+
+        public override string ToString()
+        {
+            if (!String.IsNullOrWhiteSpace(DisplayName))
+                return DisplayName;
+            return $"{DefaultUserName}@{FTPServer}";
+        }
     }
 }
