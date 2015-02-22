@@ -5,6 +5,7 @@ using Killhope.Plugins.Manager.Domain.Release.Local_IO;
 using Killhope.Plugins.Manager.Presentation.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace Killhope.Plugins.Manager.Presentation
         private static LocalReleaseManager releaseManager;
 
 
-        private static IFileSystemService GetLocalFileSystemService()
+        private static IFileSystemService GetLocalFTPFileSystemService()
         {
             var ret = new LocalFileSystemManager(Settings.Default.LocalFTPLocation);
             ret.Validate().ThowIfInvalid();
@@ -31,11 +32,13 @@ namespace Killhope.Plugins.Manager.Presentation
         {
             var all = new PluginLoader().ObtainPlugins();
 
-            IFileSystemService systemService = GetLocalFileSystemService();
+            IFileSystemService systemService = GetLocalFTPFileSystemService();
             var man = new SiteManifestManager(systemService);
             var siteman = new LocalSiteManager(systemService, new ItemLocation("", ""));
             
             FTPReleaseSideFactory factory = new FTPReleaseSideFactory(man, siteman);
+
+            DEBUG_ResetSettings();
 
             //TODO: Versions and upgrade
             if (Settings.Default.IsFirstRun)
@@ -54,6 +57,13 @@ namespace Killhope.Plugins.Manager.Presentation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1(factory, f));
+        }
+
+        [Conditional("DEBUG")]
+        private static void DEBUG_ResetSettings()
+        {
+            Settings.Default.Reset();
+            Settings.Default.Reset();
         }
 
         private static void Initialise()
