@@ -18,8 +18,11 @@ namespace Killhope.Plugins.Manager.Presentation
     {
 
 
-
-
+        [Obsolete("For designer",true)]
+        public Form1()
+        {
+            InitializeComponent();
+        }
 
         private readonly FTPReleaseSideFactory leftSide;
         private readonly LocalTempSideFactory rightSide;
@@ -27,10 +30,25 @@ namespace Killhope.Plugins.Manager.Presentation
 
         public Form1(FTPReleaseSideFactory leftSide, LocalTempSideFactory rightSide)
         {
+            if (leftSide == null)
+                throw new ArgumentNullException(nameof(leftSide));
+            if (rightSide == null)
+                throw new ArgumentNullException(nameof(rightSide));
+
             this.menuStripManager= new MenuStripManager(this.menuStrip1);
+            this.leftSide = leftSide;
+            this.rightSide = rightSide;
+
+
             IEnumerable<IPlugin> plugins = ObtainPlugins();
             LoadMenuStrip(plugins, this.menuStripManager);
         }
+
+
+        public FTPReleaseSideFactory LeftSide { get { return leftSide; } }
+        public LocalTempSideFactory RightSide { get { return rightSide; } }
+
+
 
         private IEnumerable<IPlugin> ObtainPlugins()
         {
@@ -71,10 +89,7 @@ namespace Killhope.Plugins.Manager.Presentation
             m2.AddMenuItem(new NamedMenuItem(tuple.Item2, tuple.Item1));
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-        }
+
 
 
         public void Upload()

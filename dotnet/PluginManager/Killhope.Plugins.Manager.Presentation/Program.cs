@@ -32,15 +32,15 @@ namespace Killhope.Plugins.Manager.Presentation
             if (Settings.Default.IsFirstRun)
                 PerformFirstRun();
 
-           
 
+            LocalTempSideFactory f = new LocalTempSideFactory(new LocalReleaseManager(systemService, null));
 
             Settings.Default.IsFirstRun = false;
             Settings.Default.Save();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form1(factory, f));
         }
 
         private static LocalReleaseManager GetReleaseManager()
