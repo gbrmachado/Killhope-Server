@@ -31,7 +31,7 @@ namespace Killhope.Plugins.Manager.Domain.Release
         {
             var ret = new ValidationResult();
             ret.AddIf(!Directory.Exists(this.Path), $"The supplied path: \"{Path}\" is invalid.");
-            return ret; cc
+            return ret;
         }
 
         private ReleaseManifestDTO getManifest()

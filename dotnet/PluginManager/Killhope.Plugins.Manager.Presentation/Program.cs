@@ -13,6 +13,16 @@ namespace Killhope.Plugins.Manager.Presentation
 {
     static class Program
     {
+        private static LocalReleaseManager releaseManager;
+
+
+        private static IFileSystemService GetLocalFileSystemService()
+        {
+            var ret = new LocalFileSystemManager("TODO");
+            ret.Validate().ThowIfInvalid();
+            return ret;
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -21,7 +31,7 @@ namespace Killhope.Plugins.Manager.Presentation
         {
             var all = new PluginLoader().ObtainPlugins();
 
-            IFileSystemService systemService = new LocalFileSystemManager("TODO");
+            IFileSystemService systemService = GetLocalFileSystemService();
             var man = new SiteManifestManager(systemService);
             var siteman = new LocalSiteManager(systemService, new ItemLocation("", ""));
             
@@ -33,7 +43,7 @@ namespace Killhope.Plugins.Manager.Presentation
                 PerformFirstRun();
 
 
-            LocalTempSideFactory f = new LocalTempSideFactory(new LocalReleaseManager(systemService, null));
+            LocalTempSideFactory f = new LocalTempSideFactory(systemService, null);
 
             Settings.Default.IsFirstRun = false;
             Settings.Default.Save();

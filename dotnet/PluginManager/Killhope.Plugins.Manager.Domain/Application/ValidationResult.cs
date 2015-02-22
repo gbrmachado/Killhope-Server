@@ -37,12 +37,33 @@ namespace Killhope.Plugins.Rocks.Domain.Application
                 
         }
 
+        public void ThowIfInvalid()
+        {
+            if (!this.isValid)
+                throw ToException();
+        }
+
         public override string ToString()
         {
             if (isValid)
                 return "No Errors";
 
             return "Errors: " +  String.Join("\n", this.messages);
+        }
+
+        public ValidationException ToException()
+        {
+            return new ValidationException(this.messages);
+        }
+    }
+
+    public class ValidationException : Exception
+    {
+        public ValidationException(IEnumerable<string> messages) : base(ListToString(messages)) { }
+
+        private static string ListToString(IEnumerable<string> s)
+        {
+            return "Errors: \n" + String.Join("\n", s);
         }
     }
 }
