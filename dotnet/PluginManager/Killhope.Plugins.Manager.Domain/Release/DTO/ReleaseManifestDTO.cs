@@ -16,6 +16,9 @@ namespace Killhope.Plugins.Manager.Domain.Release
         public static readonly string FileName = "releaseInfo.json";
 
         public int NumberOfFiles { get; set; }
+
+        /// <summary>The status of the release.</summary>
+        /// <remarks>The status should be consistent with the data stored in the <see cref="FTPSiteIndicator"/></remarks>
         public Status ReleaseStatus { get; set; }
 
         /// <summary>

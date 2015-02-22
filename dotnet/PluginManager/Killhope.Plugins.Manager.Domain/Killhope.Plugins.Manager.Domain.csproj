@@ -68,6 +68,7 @@
     </Compile>
     <Compile Include="Release\DTO\SiteManifest.cs" />
     <Compile Include="Release\FTP\FTPReleaseSide.cs" />
+    <Compile Include="Release\FTP\FTPSiteIndicator.cs" />
     <Compile Include="Release\FTP\FTPUtilities.cs" />
     <Compile Include="Release\IFileComparer.cs" />
     <Compile Include="Release\Local IO\IFileSystemService.cs" />
