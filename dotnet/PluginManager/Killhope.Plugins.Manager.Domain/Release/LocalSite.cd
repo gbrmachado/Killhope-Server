@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="DefaultUserName&#xD;&#xA;RootFolder">
+    <Position X="7.069" Y="3.981" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Killhope.Plugins.Manager.Domain.Release.LocalFTPManager">
+    <Position X="4.25" Y="1" Width="1.75" />
+    <Members>
+      <Field Name="fileViewer" Hidden="true" />
+      <Method Name="LocalFTPManager" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAIEAEAAAAAAAAAAAAAACEAAAAA=</HashCode>
+      <FileName>Release\LocalFTPManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Killhope.Plugins.Manager.Domain.Release.LocalFTPSiteCache">
+    <Position X="7" Y="1" Width="1.75" />
+    <Members>
+      <Field Name="availableReleases" Hidden="true" />
+      <Field Name="folderViewer" Hidden="true" />
+      <Method Name="LocalFTPSiteCache" Hidden="true" />
+      <Field Name="path" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAAAgAAgHAAAAAAAACCAAAIAAAoAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Release\LocalFTPSiteCache.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Killhope.Plugins.Manager.Domain.Release.DTO.ReleaseDTO">
+    <Position X="9.5" Y="1" Width="1.5" />
+    <Members>
+      <Method Name="ReleaseDTO" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAIAAAEAAAAAAAAAAAAAIAAAAIA=</HashCode>
+      <FileName>Release\DTO\ReleaseDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
