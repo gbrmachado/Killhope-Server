@@ -199,3 +199,4 @@ FakesAssemblies/
 *.opt
 
 !dotnet/PluginManager/Killhope.Plugins.Manager.Domain/Release
+dotnet/PluginManager/Killhope.Plugins.Manager.Presentation/FTPReleaseSideFactory.partial.cs
