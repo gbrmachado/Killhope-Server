@@ -6,7 +6,9 @@ using Utilities.FTP;
 using Killhope.Plugins.Manager.Presentation.Properties;
 using Killhope.Plugins.Manager.Domain.Release.Local_IO;
 using System.ComponentModel.Composition;
+using Killhope.Plugins.Manager.Domain.Release.FTP;
 using System.Diagnostics;
+using Killhope.Plugins.Manager.Domain.Release.DTO;
 
 namespace Killhope.Plugins.Manager.Presentation
 {
@@ -46,8 +48,7 @@ namespace Killhope.Plugins.Manager.Presentation
             var manifest = f.Result;
 
 
-            FTPclient client = new FTPclient(manifest.FTPPath, manifest.DefaultUserName, f.PasswordResult, true);
-
+            IFTPClient client = getFTPClient(manifest, f.PasswordResult);
             //Determine the release to view from the FTP as comparison.
 
             var releaseIDResult = getReleaseNumber(client);
@@ -69,6 +70,17 @@ namespace Killhope.Plugins.Manager.Presentation
 
 
             return new FTPReleaseSide(client, cache, releaseNumber);
+        }
+
+        private IFTPClient getFTPClient(SiteManifest manifest, string password)
+        {
+            var client = new FTPclient(manifest.FTPServer, manifest.DefaultUserName, password, true);
+            string path = manifest.FTPPath;
+            if (!path.StartsWith("/"))
+                path = "/" + path;
+            client.CurrentDirectory = path;
+            FTPClientValidationDecorator d = new FTPClientValidationDecorator(client);
+            return d;
         }
 
         private Tuple<bool, int> getReleaseNumber(IFTPClient client)

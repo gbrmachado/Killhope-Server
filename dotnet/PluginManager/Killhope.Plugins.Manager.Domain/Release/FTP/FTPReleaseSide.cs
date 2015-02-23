@@ -34,39 +34,6 @@ namespace Killhope.Plugins.Manager.Domain.Release
             } 
         }
 
-        //TODO: Probably move the FTPClient logic outside of this class, even though it doesn't hit the network on ctor.
-
-        public FTPReleaseSide(SiteManifest manifest, string password, LocalFTPSiteCache cache, int releaseNumber) : this(manifest.FTPServer, new NetworkCredential(manifest.DefaultUserName, password), manifest.FTPPath, cache, releaseNumber)
-        {
-
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="server"></param>
-        /// <param name="details"></param>
-        /// <param name="rootFolder">The path to the folder containing all releases on the server</param>
-        /// <param name="cache">A manager for the release on the local file system.</param>
-        /// <param name="releaseNumber">The release which should be viewed.</param>
-        public FTPReleaseSide(string server, NetworkCredential details, string rootFolder, LocalFTPSiteCache cache, int releaseNumber)
-        {
-            bool ssl = true;
-            if (details == null)
-            {
-                details = new NetworkCredential((string)null, (string)null);
-                ssl = false;
-            }
-
-            client = new FTPclient(server, details.UserName, details.Password, true);
-
-            client.EnableSSL = ssl;
-
-            this.RootFolder = rootFolder;
-            this.releaseNumber = releaseNumber;
-            this.localFTPCache = cache;
-        }
-
         public FTPReleaseSide(IFTPClient client, LocalFTPSiteCache localFTPSiteCache, int releaseNumber)
         {
             this.client = client;
