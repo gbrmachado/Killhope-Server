@@ -40,13 +40,34 @@ namespace Killhope.Plugins.Manager.Domain.Release.FTP
             isValidSite = true;
         }
 
+        private static bool hasMoreThanOne<T>(IEnumerable<T> enumerable)
+        {
+            bool foundOne = false;
+            foreach (T a in enumerable)
+            {
+                if (!foundOne)
+                    foundOne = true;
+                else
+                    return true;
+            }
+            return false;
+        }
+
         private void performValidation()
         {
             //NB to maintainers: remember to call the base implementation as any calls to the current class will obviously infinitely recurse.
             string fileToFind = FTPSiteIndicator.FileName;
             bool found = false;
 
-            foreach (var f in decorated.ListDirectory())
+            //Firstly, determine if the current directory exists, if this is not the case, then throw an error.
+            //Using the current library, the easiest way to do this is to perform a "List" and see if 
+            var allFiles = decorated.ListDirectory();
+
+            if (!allFiles.Any() || (!hasMoreThanOne(allFiles) && String.IsNullOrWhiteSpace(allFiles.First())))
+                throw new InvalidFTPSiteException($"The supplied directory: {CurrentDirectory} on {Hostname} is not a folder.");
+
+
+            foreach (var f in allFiles)
             {
                 if (f == fileToFind)
                 {

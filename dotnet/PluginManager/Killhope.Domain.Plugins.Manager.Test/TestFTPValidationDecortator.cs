@@ -11,6 +11,7 @@ namespace Killhope.Plugins.Manager.Domain.Test
 
         private FTPClientValidationDecorator getInstance()
         {
+            mock.FolderIsCreated = true;
             return new FTPClientValidationDecorator(mock);
         }
 
@@ -67,6 +68,16 @@ namespace Killhope.Plugins.Manager.Domain.Test
             mock.setAsValid();
             i.DownloadFile(MockFTPClient.ValidFileDownload);
             Assert.AreEqual(2, mock.TotalDownloadCalls);
+        }
+
+        [TestMethod, ExpectedException(typeof(FTPClientValidationDecorator.InvalidFTPSiteException))]
+        public void HavingNoCretedFolderFails()
+        {
+            var i = getInstance();
+            mock.setAsValid();
+            mock.FolderIsCreated = false;
+            i.DownloadFile(MockFTPClient.ValidFileDownload);
+            Assert.Fail();
         }
     }
 }

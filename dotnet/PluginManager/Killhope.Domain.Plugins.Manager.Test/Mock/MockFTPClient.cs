@@ -28,6 +28,8 @@ namespace Killhope.Plugins.Manager.Domain.Test
 
         public bool ValidationWasAttempted { get; private set; }
 
+        public bool FolderIsCreated { get; set; }
+
         public int TimesValidationFileDownloaded { get; internal set; }
 
         public int TotalDownloadCalls { get; set; }
@@ -66,10 +68,16 @@ namespace Killhope.Plugins.Manager.Domain.Test
         public List<string> ListDirectory(string directory = "")
         {
             if (!isValid)
-                return new List<string>();
-            else
-                return new List<string> { FTPSiteIndicator.FileName };
+                return new List<string> { };
 
+
+            //if we are "valid", there are 2 choices, depending on: FolderIsCreated
+            //Firstly: if the value is false, we only want to return "".
+            //Otherwise, we want to return the values: ".", ".." and the expected files.
+            if(!FolderIsCreated)
+                return new List<string> { "" };
+
+            return new List<string> { ".", "..", FTPSiteIndicator.FileName };
         }
 
         internal void InvalidateDownload()
