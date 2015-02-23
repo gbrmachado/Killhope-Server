@@ -6,11 +6,12 @@ using Utilities.FTP;
 using Killhope.Plugins.Manager.Presentation.Properties;
 using Killhope.Plugins.Manager.Domain.Release.Local_IO;
 using System.ComponentModel.Composition;
+using System.Diagnostics;
 
 namespace Killhope.Plugins.Manager.Presentation
 {
     [Export(typeof(FTPReleaseSideFactory))]
-    public class FTPReleaseSideFactory : ReleaseSideFactory
+    public partial class FTPReleaseSideFactory : ReleaseSideFactory
     {
         private readonly SiteManifestManager manifestManager;
         private readonly LocalSiteManager localSiteManager;
@@ -22,12 +23,21 @@ namespace Killhope.Plugins.Manager.Presentation
             this.localSiteManager = localSiteManager;
         }
 
+        /// <summary>
+        /// Allows the initial data in the form to be populated with values which can be excluded from source control with no loss.
+        /// </summary>
+        /// <param name="f">The form to populate with data</param>
+        [Conditional("DEBUG")]
+        partial void PopulateData(SiteSelection f);
+
+
         public override ReleaseSide GetInstance()
         {
             //TODO: Yeah, this code sucks.
 
             //Determine the FTP Server to view.
             SiteSelection f = new SiteSelection(manifestManager);
+            PopulateData(f);
             f.ShowDialog();
 
             if (f.DialogResult == DialogResult.Cancel)

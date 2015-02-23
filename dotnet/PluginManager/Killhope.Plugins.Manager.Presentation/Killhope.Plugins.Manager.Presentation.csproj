@@ -58,6 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPReleaseSideFactory.partial.cs" />
     <Compile Include="FTPReleaseSideFactory.cs" />
     <Compile Include="LocalTempSideFactory.cs" />
     <Compile Include="MenuStripManager.cs" />
