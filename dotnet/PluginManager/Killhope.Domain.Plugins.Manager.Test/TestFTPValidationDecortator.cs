@@ -49,5 +49,24 @@ namespace Killhope.Plugins.Manager.Domain.Test
             mock.InvalidateDownload();
             i.DownloadFile(MockFTPClient.ValidFileDownload);
         }
+
+        [TestMethod]
+        public void ValidationIsNotCalledTwice()
+        {
+            var i = getInstance();
+            mock.setAsValid();
+            i.DownloadFile(MockFTPClient.ValidFileDownload);
+            i.DownloadFile(MockFTPClient.ValidFileDownload);
+            Assert.AreEqual(1, mock.TimesValidationFileDownloaded);
+        }
+
+        [TestMethod]
+        public void OnlyOneFileIsDownloadedForValidation()
+        {
+            var i = getInstance();
+            mock.setAsValid();
+            i.DownloadFile(MockFTPClient.ValidFileDownload);
+            Assert.AreEqual(2, mock.TotalDownloadCalls);
+        }
     }
 }

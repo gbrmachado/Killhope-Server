@@ -28,8 +28,13 @@ namespace Killhope.Plugins.Manager.Domain.Test
 
         public bool ValidationWasAttempted { get; private set; }
 
+        public int TimesValidationFileDownloaded { get; internal set; }
+
+        public int TotalDownloadCalls { get; set; }
+
         public MemoryStream DownloadFile(string sourceFilename)
         {
+            TotalDownloadCalls++;
             if (!isValid)
                 return null;
 
@@ -39,6 +44,7 @@ namespace Killhope.Plugins.Manager.Domain.Test
             if (sourceFilename == FTPSiteIndicator.FileName)
             {
                 ValidationWasAttempted = true;
+                TimesValidationFileDownloaded++;
                 return new MemoryStream(Encoding.UTF8.GetBytes(new FTPSiteIndicator().ToJSONString()));
             }
 

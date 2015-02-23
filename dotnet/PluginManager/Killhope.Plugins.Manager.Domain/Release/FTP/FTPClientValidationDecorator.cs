@@ -37,6 +37,7 @@ namespace Killhope.Plugins.Manager.Domain.Release.FTP
             if (isValidSite)
                 return;
             performValidation();
+            isValidSite = true;
         }
 
         private void performValidation()
