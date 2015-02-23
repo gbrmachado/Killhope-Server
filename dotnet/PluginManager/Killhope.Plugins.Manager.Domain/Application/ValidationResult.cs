@@ -43,6 +43,7 @@ namespace Killhope.Plugins.Rocks.Domain.Application
                 throw ToException();
         }
 
+        /// <summary>Returns a formatted string containing all errors.</summary>
         public override string ToString()
         {
             if (isValid)
