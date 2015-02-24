@@ -80,8 +80,11 @@ namespace Killhope.Plugins.Manager.Domain.Release.FTP
                 throw InvalidFTPSiteException.FileNotFound(FTPSiteIndicator.FileName, CurrentDirectory, Hostname);
 
 
-            string toConvert = decorated.DownloadFile(fileToFind).ConvertToString();
+            string toConvert = decorated.DownloadFile(CurrentDirectory + fileToFind).ConvertToString(resetBeforeWriting:true);
             FTPSiteIndicator file = FTPSiteIndicator.FromString(toConvert);
+
+            if(file == null)
+                throw new InvalidFTPSiteException($"File: {fileToFind} found, but no content was detected.");
 
             var validation = file.Validate();
             if (!validation.isValid)
