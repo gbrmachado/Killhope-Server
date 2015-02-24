@@ -15,7 +15,7 @@
       <Value Profile="(Default)">/</Value>
     </Setting>
     <Setting Name="LocalFTPLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">%APPDATA%\Durham University\Killhope\CurerentRelease\</Value>
     </Setting>
     <Setting Name="IsFirstRun" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

@@ -73,7 +73,7 @@ namespace Killhope.Plugins.Manager.Presentation.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("%APPDATA%\\Durham University\\Killhope\\CurerentRelease\\")]
         public string LocalFTPLocation {
             get {
                 return ((string)(this["LocalFTPLocation"]));
