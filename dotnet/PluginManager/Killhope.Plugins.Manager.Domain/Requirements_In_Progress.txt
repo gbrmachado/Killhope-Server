@@ -1,0 +1,9 @@
+﻿
+
+Adding a plugin with a specified menu item will 
+If two plugins add the same item, it will be disambiguated by another level of the menu specifying the program name.
+
+
+On a load or refresh operation, the specified folder will be searched for compatible plugins, these will be loaded and the GUI of the Plugin manager will be updated to allow these plugins to be run.
+If a plugin fails to load, then an error will be shown.
+If a plugin crashes, then the plugin manager will not crash due to this.

@@ -1,0 +1,99 @@
+﻿PM
+Plugin Manager
+10
+FS
+
+
+If the application search folder is changed, then any valid plugins in that folder will be loaded.
+If the folder is invalid or unavailable then a warning will be shown and the default location will be used
+PM 1.1.1
+The search folder for plugins may be on a networked drive.
+1
+PM.1.1
+Setting the plugin location to a networked drive will work and allow the user to load the plugins.
+
+PM.1.2
+Allow the user to specify multiple folders to search
+3
+PM.1
+The application allows multiple folders to be searched for plugins and 
+If the same plugin is loaded
+PM.2
+A loaded plugin may specify one or more menu items to be added or appended to the menu bar. These may be specified in folders.
+9
+PM
+Adding a plugin with a specified menu item will 
+If two plugins add the same item, it will be disambiguated by another level of the menu specifying the program name.
+PM.3
+The plugin author must be authenticated before it is loaded.
+1
+PM
+If a plugin is not digitally signed then it will be rejected
+If a plugin is not signed, then it will be handled as an error would be in PM.1 
+PM.3.1
+Allow an admin to override the above (per plugin per session)
+1
+PM.3
+If an unsigned plugin is loaded then a message will be displayed asking if it should be loaded.
+
+PM.5.1
+A Plugin may specify file types and associated operations on specified files
+5
+
+PM.6
+Allow a compressed collection of changed files (a release) to be uploaded to a server. 
+10
+
+
+PM.6.3
+A screen where a user can, view and verify files and the folder structure of the data before upload must be shown 
+9
+
+PM.6.3.1
+Files when viewed with this GUI may have associated actions performed on them.
+5
+PM.5.1
+
+
+PM.7.1
+Allow Global list of Current View Ids to be retrieved.
+An interface will be provided allowing plugins to retrieve this information.
+
+PM.7.1.1
+Ensure list of View Ids is distinct.
+
+PM.7.1
+An addition to the list of views will fail if the new ID would violate the constraint.
+If the operation is blocked, then an error message will be displayed and the user will be offered a chance to cancel, change the ID, or view the duplicate.
+
+PM.7.2
+Provide user interface for plugins to find/create new views.
+
+PM.7.3
+All plugins must have the ability to open their associated views in read-only mode.
+
+The plugin manager enforces this constraint on all plugins.
+
+PM.8
+Allow plugins to register wizard for view creation.
+
+PM.9
+Each Plugin must handle a compress operation, where the supplied intermediate object will provide images to be compressed, and have unused data removed
+
+
+
+PM.10.1
+If two plugins are loaded with the same GUID and equal versions, then the second plugin will be unloaded and ignored.
+
+
+
+
+PM.4.2
+Allows the changed source files to be bundled with the current Java Source code and compiled into an executable Android Package File (APK)
+4
+
+A compiled APK is created and can be loaded on a development phone.
+
+PM.4.3
+Allow the Application file to be uploaded to the Google Play Store
+2

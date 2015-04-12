@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Killhope.Plugins.Maps.Domain", "Killhope.Plugins.Maps.Domain\Killhope.Plugins.Maps.Domain.csproj", "{3E8A76DE-2D20-49C2-B5E3-078A6E342D98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Killhope.Plugins.Maps.Presentation", "Killhope.Plugins.Maps.Presentation\Killhope.Plugins.Maps.Presentation.csproj", "{2A1A7A39-2507-416C-9AC6-D50DB418AB60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Killhope.Plugins.Maps.Domain.Test", "Killhope.Plugins.Maps.Domain.Test\Killhope.Plugins.Maps.Domain.Test.csproj", "{510D3ACE-3E42-484F-86F5-C42BC13DC623}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E8A76DE-2D20-49C2-B5E3-078A6E342D98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E8A76DE-2D20-49C2-B5E3-078A6E342D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E8A76DE-2D20-49C2-B5E3-078A6E342D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E8A76DE-2D20-49C2-B5E3-078A6E342D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A1A7A39-2507-416C-9AC6-D50DB418AB60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A1A7A39-2507-416C-9AC6-D50DB418AB60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A1A7A39-2507-416C-9AC6-D50DB418AB60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A1A7A39-2507-416C-9AC6-D50DB418AB60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{510D3ACE-3E42-484F-86F5-C42BC13DC623}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{510D3ACE-3E42-484F-86F5-C42BC13DC623}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{510D3ACE-3E42-484F-86F5-C42BC13DC623}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{510D3ACE-3E42-484F-86F5-C42BC13DC623}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
