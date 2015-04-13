@@ -6,7 +6,7 @@ using System.Drawing.Drawing2D;
 
 using Room = Killhope.Plugins.Maps.Domain.JSON.Room;
 using Exhibition = Killhope.Plugins.Maps.Domain.JSON.Exhibition;
-
+using Killhope.Plugins.Maps.Domain;
 
 namespace Killhope.Plugins.Maps.Presentation
 {
@@ -34,6 +34,15 @@ namespace Killhope.Plugins.Maps.Presentation
             map = initialMap;
         }
 
+        public JSON.Map ToMap(string Name)
+        {
+            JSON.Map m = new JSON.Map();
+            m.Exhibitions = this.exhibitions;
+            m.Rooms = this.rooms;
+            m.Image = "";
+            m.Title = Name;
+            return m;
+        }
 
 
         public Image Map
@@ -84,7 +93,7 @@ namespace Killhope.Plugins.Maps.Presentation
         public virtual void Draw(Graphics g)
         {
             g.DrawImage(this.map, new Point(0, 0));
-
+            
             g.SmoothingMode = SmoothingMode.HighQuality;
 
             foreach (var room in this.rooms)
