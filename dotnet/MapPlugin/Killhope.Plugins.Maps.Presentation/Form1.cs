@@ -12,6 +12,7 @@ using Room = Killhope.Plugins.Maps.Domain.JSON.Room;
 using Point = Killhope.Plugins.Maps.Domain.JSON.Point;
 using Exhibition = Killhope.Plugins.Maps.Domain.JSON.Exhibition;
 using Killhope.Plugins.Maps.Domain;
+using Newtonsoft.Json;
 
 namespace Killhope.Plugins.Maps.Presentation
 {
@@ -159,6 +160,8 @@ namespace Killhope.Plugins.Maps.Presentation
         private void btn_DeleteRoom_Click(object sender, EventArgs e)
         {
             var val = (Room)lbx_Rooms.SelectedItem;
+            if (val == null)
+                return;
             lbx_Rooms.Items.Remove(val);
             im.DeleteRoom(val);
         }
@@ -166,6 +169,13 @@ namespace Killhope.Plugins.Maps.Presentation
         private void checkBox1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Hello world");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            JSON.Map m = this.im.ToMap("Killhope");
+            Clipboard.SetText(JsonConvert.SerializeObject(m));
+            MessageBox.Show("Done");
         }
     }
 }
